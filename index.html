@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalendarzyk 2024</title>
+
+
+    <link rel="icon" href="https://teodor11.github.io/Kalendarzyk2024/favicon.ico"
+        integrity="sha384-m9dzpCOWUeU6PBZFOGv6l489s92r8VocmN82VTA5Z4oSW95a/LaWAtxfiYrKOMjQ" crossorigin="anonymous" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Open+Sans:wght@400;600;700&display=swap">
+    </linkrel>
+    <link rel="stylesheet" href="https://teodor11.github.io/Kalendarzyk2024/flatpickr/flatpickr.css"
+        integrity="sha384-EensDt4qMlefN4H/ADQkUnXb8wR3cGEKg/DUk9VyZ9eovSXDAKEiiXdB6UPtiIOE" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://teodor11.github.io/Kalendarzyk2024/back_style.css"
+        integrity="sha384-Fmc2umr8HvlqX4xUG1dkhhKEUVbRYffyH4vkceCVm2reCj/uBLF6l/2lEiIi1AOH" crossorigin="anonymous" />
+</head>
+
+<body>
+
+    <h1>Kalendarzyk 2024</h1>
+
+    <div id="card_type">
+        <h2>Typ karty:</h2>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_1" value="1" />
+            <label for="card_type_option_1">
+                <span>🍉 1</span>
+                <br />
+                <span>Tekst</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_2" value="2" />
+            <label for="card_type_option_2">
+                <span>🍌 2</span>
+                <br />
+                <span>Obrazek</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_3" value="3" />
+            <label for="card_type_option_3">
+                <span>🍍 3</span>
+                <br />
+                <span>Obrazek, tekst</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_4" value="4" />
+            <label for="card_type_option_4">
+                <span>🍎 4</span>
+                <br />
+                <span>Mały obrazek, tekst</span>
+            </label>
+        </div>
+
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_5" value="5" />
+            <label for="card_type_option_5">
+                <span>🍐 5</span>
+                <br />
+                <span>Dwa małe obrazki</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_6" value="6" />
+            <label for="card_type_option_6">
+                <span>🍒 6</span>
+                <br />
+                <span>Tekst, obrazek</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_7" value="7" />
+            <label for="card_type_option_7">
+                <span>🍓 7</span>
+                <br />
+                <span>Tekst, mały obrazek</span>
+            </label>
+        </div>
+        <div class="card_type_option">
+            <input type="radio" name="card_type_option" id="card_type_option_8" value="8" />
+            <label for="card_type_option_8">
+                <span>🥝 8</span>
+                <br />
+                <span>Tytuł, obrazek, tekst</span>
+            </label>
+        </div>
+    </div>
+
+    <div class="hidden" id="card_content_preview_grid">
+
+        <div id="card_content">
+            <h2>Zawartość karty:</h2>
+
+            <div class="card_content_field hidden" id="card_content_field_day">
+                <label for="card_content_day">Dzień (opcjonalnie):</label><br />
+                <div id="card_content_day_flex">
+                    <input id="card_content_day" />
+                    <button class="hover_sweep_to_right" id="clear_day_button"><i class="fas fa-trash"></i></button>
+                </div>
+
+            </div>
+
+
+            <div class="card_content_field" id="card_content_field_image_path">
+                <label for="card_content_image_path">Ścieżka do folderu z obrazkami:</label><br />
+                <input type="text" id="card_content_image_path" />
+            </div>
+
+            <div class="card_content_field" id="card_content_field_title">
+                <label for="card_content_title">Tytuł:</label><br />
+                <input type="text" id="card_content_title" />
+
+                <div class="card_content_options">
+                    <p>Wyrównanie tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_align" id="card_content_title_align_left"
+                            value="left" />
+                        <label for="card_content_title_align_left"><i class="fas fa-align-left"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_align" id="card_content_title_align_center"
+                            value="center" />
+                        <label for="card_content_title_align_center"><i class="fas fa-align-center"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_align" id="card_content_title_align_right"
+                            value="right" />
+                        <label for="card_content_title_align_right"><i class="fas fa-align-right"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_align" id="card_content_title_align_justify"
+                            value="justify" checked />
+                        <label for="card_content_title_align_justify"><i class="fas fa-align-justify"></i></label>
+                    </div>
+                </div>
+
+                <div class="card_content_options">
+                    <p>Wielkosć tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_size" id="card_content_title_size_tiny"
+                            value="tiny" />
+                        <label for="card_content_title_size_tiny">0.8</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_size" id="card_content_title_size_small"
+                            value="small" />
+                        <label for="card_content_title_size_small">1.0</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_size" id="card_content_title_size_normal"
+                            value="normal" checked />
+                        <label for="card_content_title_size_normal">1.2</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_title_size" id="card_content_title_size_large"
+                            value="large" />
+                        <label for="card_content_title_size_large">1.4</label>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="card_content_field" id="card_content_field_text">
+                <label for="card_content_text">Tekst:</label><br />
+                <textarea id="card_content_text"></textarea>
+
+                <div class="card_content_options">
+                    <p>Wyrównanie tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_align" id="card_content_text_align_left"
+                            value="left" />
+                        <label for="card_content_text_align_left"><i class="fas fa-align-left"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_align" id="card_content_text_align_center"
+                            value="center" />
+                        <label for="card_content_text_align_center"><i class="fas fa-align-center"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_align" id="card_content_text_align_right"
+                            value="right" />
+                        <label for="card_content_text_align_right"><i class="fas fa-align-right"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_align" id="card_content_text_align_justify"
+                            value="justify" checked />
+                        <label for="card_content_text_align_justify"><i class="fas fa-align-justify"></i></label>
+                    </div>
+                </div>
+
+                <div class="card_content_options">
+                    <p>Wielkosć tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_size" id="card_content_text_size_tiny"
+                            value="tiny" />
+                        <label for="card_content_text_size_tiny">0.8</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_size" id="card_content_text_size_small"
+                            value="small" />
+                        <label for="card_content_text_size_small">1.0</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_size" id="card_content_text_size_normal"
+                            value="normal" checked />
+                        <label for="card_content_text_size_normal">1.2</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text_size" id="card_content_text_size_large"
+                            value="large" />
+                        <label for="card_content_text_size_large">1.4</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card_content_field" id="card_content_field_text2">
+                <label for="card_content_text2">Tekst 2:</label><br />
+                <textarea id="card_content_text2"></textarea>
+                <div class="card_content_options">
+                    <p>Wyrównanie tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_align" id="card_content_text2_align_left"
+                            value="left" />
+                        <label for="card_content_text2_align_left"><i class="fas fa-align-left"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_align" id="card_content_text2_align_center"
+                            value="center" />
+                        <label for="card_content_text2_align_center"><i class="fas fa-align-center"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_align" id="card_content_text2_align_right"
+                            value="right" />
+                        <label for="card_content_text2_align_right"><i class="fas fa-align-right"></i></label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_align" id="card_content_text2_align_justify"
+                            value="justify" checked />
+                        <label for="card_content_text2_align_justify"><i class="fas fa-align-justify"></i></label>
+                    </div>
+                </div>
+
+                <div class="card_content_options">
+                    <p>Wielkosć tekstu:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_size" id="card_content_text2_size_tiny"
+                            value="tiny" />
+                        <label for="card_content_text2_size_tiny">0.8</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_size" id="card_content_text2_size_small"
+                            value="small" />
+                        <label for="card_content_text2_size_small">1.0</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_size" id="card_content_text2_size_normal"
+                            value="normal" checked />
+                        <label for="card_content_text2_size_normal">1.2</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_text2_size" id="card_content_text2_size_large"
+                            value="large" />
+                        <label for="card_content_text2_size_large">1.4</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card_content_field" id="card_content_field_image">
+                <label for="card_content_image">Obrazek:</label><br />
+                <input type="file" id="card_content_image" />
+                <div class="card_content_options card_content_options_image">
+                    <p>Wielkosć obrazka:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image_size" id="card_content_image_size_tiny"
+                            value="tiny" />
+                        <label for="card_content_image_size_tiny">50%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image_size" id="card_content_image_size_small"
+                            value="small" />
+                        <label for="card_content_image_size_small">70%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image_size" id="card_content_image_size_normal"
+                            value="normal" checked />
+                        <label for="card_content_image_size_normal">90%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image_size" id="card_content_image_size_large"
+                            value="large" />
+                        <label for="card_content_image_size_large">100%</label>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="card_content_field" id="card_content_field_image2">
+                <label for="card_content_image2">Obrazek 2:</label><br />
+                <input type="file" id="card_content_image2" />
+                <div class="card_content_options card_content_options_image">
+                    <p>Wielkosć obrazka:</p>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image2_size" id="card_content_image2_size_tiny"
+                            value="tiny" />
+                        <label for="card_content_image2_size_tiny">50%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image2_size" id="card_content_image2_size_small"
+                            value="small" />
+                        <label for="card_content_image2_size_small">70%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image2_size" id="card_content_image2_size_normal"
+                            value="normal" checked />
+                        <label for="card_content_image2_size_normal">90%</label>
+                    </div>
+                    <div class="card_content_single_option">
+                        <input type="radio" name="card_content_image2_size" id="card_content_image2_size_large"
+                            value="large" />
+                        <label for="card_content_image2_size_large">100%</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div id="main_card_buttons">
+            <button class="hover_sweep_to_right" id="clear_card_button"><i class="fas fa-trash"></i></button>
+            <button class="hover_sweep_to_right" id="get_card_button">Wyświetl kartę
+                <i class="fas fa-angle-double-right"></i></button>
+        </div>
+
+
+        <div class="invisible" id="card_preview_container">
+            <h2 id="card_preview_header">Podgląd karty:</h2>
+            <div id="card_preview"> </div>
+        </div>
+
+        <div>
+            <div id="creating_cards_tips">
+                <h2>Formatowanie tekstu:</h2>
+                <ul>
+                    <li><span>&ast;abc&ast;</span> &rightarrow; pogrubienie tekstu</li>
+                    <li><span>&bsol;&ast;</span> &rightarrow; gwiazdka, która nie ma służyć do pogrubienia tekstu</li>
+                    <li><span>&bsol;n</span> &rightarrow; nowy wiersz</li>
+                    <li><span>---</span> &rightarrow; pozioma linia</li>
+                    <li><span>&ndash;</span> &rightarrow; półpauza <br /><span> (należy używać jej zamiast myślnika,
+                            który służy jedynie tworzenia wyrazów złożonych)</span></li>
+                    <li><span>&amp;nbsp;</span> &rightarrow; niełamiąca spacja <br /><span>(należy używać jej po
+                            krótkich spójnikach/przyimkach, aby przenieść je do nowej linii!)</span></li>
+                </ul>
+            </div>
+
+            <div class="invisible" id="card_result">
+                <div id="card_result_line">${1}&Tab;SecondColumn&Tab;ThirdColumn</div>
+                <button class="hover_sweep_to_right" id="result_copy_button"><i class="fas fa-copy"></i></button>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="margin_page_bottom"></div>
+
+    <footer id="footer">
+        <hr />
+        <p>&copy; 2023 Teodor</p>
+    </footer>
+
+    <script src="https://kit.fontawesome.com/0b933f18b4.js" crossorigin="anonymous"></script>
+    <script src="https://teodor11.github.io/Kalendarzyk2024/flatpickr/flatpickr.js"
+        integrity="sha384-o3FlRRx17nEKhGtn9hxMHhPL4StHvVjc8eUcuQBuvbT2Cl4R4ZbLNPhLIucnN/V0"
+        crossorigin="anonymous"></script>
+    <script src="https://teodor11.github.io/Kalendarzyk2024/flatpickr/pl.js"
+        integrity="sha384-gpxSi9sWcTnDN24+7AISZWvEDPkiUIb7ODZs/1NrW92DvPvPEbe32ytQnoXWuqAG"
+        crossorigin="anonymous"></script>
+    <script src="https://teodor11.github.io/Kalendarzyk2024/back_preview_script.js"
+        integrity="sha384-BEkoSCLmBrxL7iQrp0RL1c29mx3xzL3uxoybcMxfltzIwP76t89w8uyyIfFaIep9"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
